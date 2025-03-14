@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #a9a9aa;
 }
 
 #display {
@@ -22,11 +23,13 @@ body {
     align-items: center;
     justify-content: flex-end;
     padding-right: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .calculator {
     width: 300px;
-    background-color: #222;
+    background-color: #17191c;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,4 +50,23 @@ button {
 .row {
     display: flex;
     gap: 10px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.dark {
+    background-color: #4a4b4d;
+    color: #ffffff;
+}
+
+.light {
+    background-color: #a9a9aa;
+    color: #000000;
+}
+
+.operator {
+    background-color: #3373e1;
+    color: #ffffff;
 }

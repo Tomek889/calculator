@@ -40,9 +40,9 @@ function operate(a, b, operator) {
 }
 
 
-let firstOperand;
-let secondOperand;
-let operator;
+let firstOperand = null;
+let secondOperand = null;
+let operator = null;
 let displayContent = '';
 
 

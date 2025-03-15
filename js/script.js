@@ -17,7 +17,11 @@ function subtract(a, b) {
 
 
 function multiply(a, b) {
-    return a * b;
+    let result = a * b;
+
+    return result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
+    ? result.toFixed(6)
+    : result;
 }
 
 
@@ -110,8 +114,22 @@ buttons.addEventListener('click', (event) => {
             if (displayText === '-') {
                 displayText = displayText.slice(0, -1);
             }
-            
+
             display.textContent = displayText;
+        }
+    } else if (buttonText === '.') {
+        if (displayText) {
+            if (
+            displayText.includes(operator) && 
+            !displayText.split(operator)[1].includes('.')) {
+                displayText += '.';
+                display.textContent = displayText;
+                reset = false;
+            } else if (!displayText.includes(operator) && !displayText.includes('.')) {
+                displayText += '.';
+                display.textContent = displayText;
+                reset = false;
+            }
         }
     }
 });

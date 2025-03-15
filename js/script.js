@@ -61,7 +61,7 @@ buttons.addEventListener('click', (event) => {
         if (reset) { 
             displayText = buttonText;
             reset = false;
-        } else {
+        } else if (displayText.length < 13) {
             displayText += buttonText;
         }
         display.textContent = displayText;

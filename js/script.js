@@ -20,7 +20,7 @@ function multiply(a, b) {
     let result = a * b;
 
     return result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
-    ? result.toFixed(6)
+    ? result.toFixed(5)
     : result;
 }
 
@@ -33,7 +33,7 @@ function divide(a, b) {
     let result = a / b;
 
     return result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
-    ? result.toFixed(6)
+    ? result.toFixed(5)
     : result;
 }
 

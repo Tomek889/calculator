@@ -28,8 +28,8 @@ function divide(a, b) {
 
     let result = a / b;
 
-    result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
-    ? result.toFixed(4)
+    return result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
+    ? result.toFixed(6)
     : result;
 }
 
@@ -89,5 +89,15 @@ buttons.addEventListener('click', (event) => {
         operands = [];
         displayText = ''; 
         reset = false;
+    } else if (buttonText === '%') {
+        if (display.textContent && !operator) {
+            displayText = operate(parseFloat(displayText), 100, '/');
+            display.textContent = displayText;
+        }
+    } else if (buttonText === '(-)') {
+        if (display.textContent && !operator) {
+            displayText = (-parseFloat(displayText)).toString();
+            display.textContent = displayText;
+        }
     }
 });

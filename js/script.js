@@ -1,5 +1,25 @@
 const DIGITS = '0123456789';
 const OPERATORS = '+-*/';
+const keyMapping = {
+    '0': '0',
+    '1': '1',
+    '2': '2',
+    '3': '3',
+    '4': '4',
+    '5': '5',
+    '6': '6',
+    '7': '7',
+    '8': '8',
+    '9': '9',
+    '+': '+',
+    '-': '-',
+    '*': '*',
+    '/': '/',
+    'Enter': '=',
+    'Backspace': 'DEL',
+    '.': '.',
+    'c': 'AC',
+};
 
 
 const buttons = document.querySelector('.buttons');
@@ -130,6 +150,18 @@ buttons.addEventListener('click', (event) => {
                 display.textContent = displayText;
                 reset = false;
             }
+        }
+    }
+});
+
+
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    if (keyMapping[key]) {
+        const button = document.querySelector(`button[data-value="${keyMapping[key]}"]`);
+        if (button) {
+            button.click();
         }
     }
 });

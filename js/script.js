@@ -99,5 +99,19 @@ buttons.addEventListener('click', (event) => {
             displayText = (-parseFloat(displayText)).toString();
             display.textContent = displayText;
         }
+    } else if (buttonText === 'DEL') {
+        if (display.textContent) {
+            if (OPERATORS.includes(displayText[displayText.length - 1])) {
+                operator = null;
+            }
+
+            displayText = displayText.slice(0, -1);
+
+            if (displayText === '-') {
+                displayText = displayText.slice(0, -1);
+            }
+            
+            display.textContent = displayText;
+        }
     }
 });

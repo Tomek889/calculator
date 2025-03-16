@@ -98,13 +98,28 @@ buttons.addEventListener('click', (event) => {
         }
     } else if (buttonText === '=') {
         if (operator && display.textContent.includes(operator)) {
-            operands = display.textContent.split(operator);
-            if (operands.length === 2 && operands[1] !== '') {
-                let result = operate(parseFloat(operands[0]), parseFloat(operands[1]), operator);
-                display.textContent = result;
-                displayText = result.toString();
-                operator = null;
-                reset = true;
+            let index  = display.textContent.indexOf(operator);
+
+            if (index > 0) {
+                operands = display.textContent.split(operator);
+
+                if (operands.length === 2 && operands[1] !== '') {
+                    let result = operate(parseFloat(operands[0]), parseFloat(operands[1]), operator);
+                    display.textContent = result;
+                    displayText = result.toString();
+                    operator = null;
+                    reset = true;
+                }
+            } else {
+                operands = display.textContent.slice(1).split(operator);
+
+                if (operands.length === 2 && operands[1] !== '') {
+                    let result = operate(-parseFloat(operands[0]), parseFloat(operands[1]), operator);
+                    display.textContent = result;
+                    displayText = result.toString();
+                    operator = null;
+                    reset = true;
+                }  
             }
         }
     } else if (buttonText === 'AC') {

@@ -130,7 +130,7 @@ buttons.addEventListener('click', (event) => {
         reset = false;
     } else if (buttonText === '%') {
         if (display.textContent && !operator) {
-            displayText = operate(parseFloat(displayText), 100, '/');
+            displayText = operate(parseFloat(displayText), 100, '/').toString();
             display.textContent = displayText;
         }
     } else if (buttonText === '(-)') {

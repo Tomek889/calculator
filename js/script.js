@@ -27,12 +27,20 @@ const display = document.querySelector('#display');
 
 
 function add(a, b) {
-    return a + b;
+    let result = a + b;
+
+    return result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
+    ? result.toFixed(5)
+    : result;
 }
 
 
 function subtract(a, b) {
-    return a - b;
+    let result = a - b;
+
+    return result % 1 !== 0 && result.toString().split('.')[1]?.length > 4
+    ? result.toFixed(5)
+    : result;
 }
 
 
